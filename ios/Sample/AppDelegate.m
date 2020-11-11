@@ -7,9 +7,12 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import "AppDelegate.h"
 
+#import "AppDelegate.h"
 #import "RCTRootView.h"
+#import "AppCenterReactNative.h"
+#import "AppCenterReactNativeAnalytics.h"
+#import "AppCenterReactNativeCrashes.h"
 
 @implementation AppDelegate
 
@@ -67,6 +70,12 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  [AppCenterReactNative register];
+  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
+  [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
+  
+  
   return YES;
 }
 
